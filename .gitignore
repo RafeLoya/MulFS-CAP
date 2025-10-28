@@ -123,3 +123,9 @@ venv.bak/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+
+# MulFS-CAP specific files / dirs
+vis_train/
+ir_train/
+vis_test/
+ir_test/
