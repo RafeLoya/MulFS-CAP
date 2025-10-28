@@ -21,6 +21,15 @@ Our paper is available online! [[IEEE](https://ieeexplore.ieee.org/document/1085
 
  - [ ] numpy  1.21.5
  
+## Setup
+
+```
+conda create -n <project_env_name> python=3.10
+conda activate <project_env_name>
+# may be CUDA version mismatch, check w/ own hardware & find proper install here: pytorch.org/get-started/previous-versions/#v1121
+pip install torch==1.12.1 torchvision==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu116
+pip install -r requirements.txt
+```
 
 ## To Test
 1.If you want to test input source images with a fixed resolution of 256x256, you can run following commands:
