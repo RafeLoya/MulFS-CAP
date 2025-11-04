@@ -170,14 +170,14 @@ for x in tqdm(test_data_iter):
             ir_d = F.interpolate(ir_d, (h, w), mode="bilinear", align_corners=False)
             fusion_image_sample = F.interpolate(fusion_image_sample, (h, w), mode="bilinear", align_corners=False)
 
-        file_name = dir[0].split("\\")[-1].split('.')[0]
-        output_name = save_dir + "/" + file_name + ".png"
+        file_name = os.path.splitext(os.path.basename(dir[0]))[0]
+        output_name = os.path.join(save_dir, file_name + ".png")
         out = torch.cat([vis, ir_d, fusion_image_sample], dim=2)
         utils.save_img(out, output_name)
 
-        output_name = save_ird_dir + "/" + file_name + ".png"
+        output_name = os.path.join(save_ird_dir, file_name + ".png")
         utils.save_img(ir_d, output_name)
 
-        output_name = save_fusion_dir + "/" + file_name + ".png"
+        output_name = os.path.join(save_fusion_dir, file_name + ".png")
         out = fusion_image_sample
         utils.save_img(out, output_name)
