@@ -127,3 +127,4 @@ dmypy.json
 # MulFS-CAP specific files / dirs
 data/
 pretrain/
+results/

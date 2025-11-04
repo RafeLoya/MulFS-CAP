@@ -26,9 +26,11 @@ Our paper is available online! [[IEEE](https://ieeexplore.ieee.org/document/1085
 ```
 conda create -n <project_env_name> python=3.10
 conda activate <project_env_name>
+
 # may be CUDA version mismatch, check w/ own hardware & find proper install here: pytorch.org/get-started/previous-versions/#v1121
 pip install torch==1.12.1 torchvision==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu116
 pip install -r requirements.txt
+python ./utils/setup_dirs.py
 ```
 
 If testing using the pretrained model, use this link to download it: [RoadScene](https://drive.google.com/drive/folders/14RwjzYiTPThZSSruAe_8XY9SAajQrlrF?usp=sharing)
