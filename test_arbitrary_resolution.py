@@ -102,7 +102,7 @@ with torch.no_grad():
     MHCSA_ir = model.MHCSAB()
     fusion_module = model.FusionMoudle()
 
-pretrain_dir = r"..."
+pretrain_dir = r"./pretrain"
 
 checkpoints = torch.load(os.path.join(pretrain_dir, "ckpts.pth"))
 
