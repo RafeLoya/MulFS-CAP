@@ -66,8 +66,8 @@ tf_test = torchvision.transforms.Compose([
     torchvision.transforms.ToTensor()  # (0, 255) -> (0, 1)
 ])
 
-vis_test_dir = r"..."
-ir_test_dir = r"..."
+vis_test_dir = r"./data/test/vis"
+ir_test_dir = r"./data/test/ir"
 
 save_dir = "./results"
 save_ird_dir = save_dir + "/ird"

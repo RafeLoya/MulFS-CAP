@@ -31,16 +31,28 @@ pip install torch==1.12.1 torchvision==0.13.1 --extra-index-url https://download
 pip install -r requirements.txt
 ```
 
+If testing using the pretrained model, use this link: [RoadScene](https://drive.google.com/drive/folders/14RwjzYiTPThZSSruAe_8XY9SAajQrlrF?usp=sharing)
+
 ## To Test
-1.If you want to test input source images with a fixed resolution of 256x256, you can run following commands:
+
+Both options may require a user to specify the directories containing the test images, specifically with `--vis_test_dir` and `--ir_test_dir`.
+
+### Fixed Resolution (256x256)
+
+If you want to test input source images with a fixed resolution of 256x256, you can run following commands:
     
     python test.py
-    
-2.If you want to test input source images of arbitrary resolution, you can run following commands:
+
+### Arbitrary Resolution
+
+If you want to test input source images of arbitrary resolution, you can run following commands:
 
     python test_arbitrary_resolution.py
 
 ## To Train
+
+This may require a user to specify the directories containing the training images, specifically with `--vis_train_dir` and `--ir_train_dir`.
+
     python train.py
 
 ## Pretrained Model

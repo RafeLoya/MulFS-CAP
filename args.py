@@ -2,10 +2,14 @@
 import argparse
 
 parser = argparse.ArgumentParser(description='**MulFS-CAP**')
-parser.add_argument('--vis_train_dir', default=r'...', type=str)
-parser.add_argument('--ir_train_dir', default=r'...', type=str)
-parser.add_argument('--vis_test_dir', default=r'...', type=str)
-parser.add_argument('--ir_test_dir', default=r'...', type=str)
+# parser.add_argument('--vis_train_dir', default=r'...', type=str)
+# parser.add_argument('--ir_train_dir', default=r'...', type=str)
+# parser.add_argument('--vis_test_dir', default=r'...', type=str)
+# parser.add_argument('--ir_test_dir', default=r'...', type=str)
+parser.add_argument('--vis_train_dir', default=r'./data/train/vis', type=str)
+parser.add_argument('--ir_train_dir', default=r'./data/train/ir', type=str)
+parser.add_argument('--vis_test_dir', default=r'.data/test/vis', type=str)
+parser.add_argument('--ir_test_dir', default=r'./data/test/ir', type=str)
 
 parser.add_argument('--train_save_img_dir', default='./checkpoints/images', type=str)
 parser.add_argument('--train_save_model_dir', default='./checkpoints/train_models', type=str)
