@@ -119,7 +119,7 @@ with torch.no_grad():
     MN_ir = model.Enhance()
     VISDP = model.DictionaryRepresentationModule()
     IRDP = model.DictionaryRepresentationModule()
-    ImageDeformation = model.ImageTransform().to(device)  # CHANGED TO GPU
+    ImageDeformation = model.ImageTransform().cpu()
     MHCSA_vis = model.MHCSAB()
     MHCSA_ir = model.MHCSAB()
     fusion_module = model.FusionMoudle()
@@ -203,21 +203,26 @@ for x in tqdm(test_data_iter):
                 ir_d = F.interpolate(ir_d, (h, w), mode="bilinear", align_corners=False)
                 fusion_image_sample = F.interpolate(fusion_image_sample, (h, w), mode="bilinear", align_corners=False)
 
-            file_name = dir[0].split("\\")[-1].split('.')[0]
+            # line assumes this is being run on Windows systems ('\' paths)
+            # file_name = dir[0].split("\\")[-1].split('.')[0]
+            file_name = os.path.splitext(os.path.basename(dir[0]))[0]
 
             # Save combined
-            output_name = save_dir + "/" + file_name + ".png"
+            #output_name = save_dir + "/" + file_name + ".png"
+            output_name = os.path.join(save_dir, file_name + ".png")
             out = torch.cat([vis, ir_d, fusion_image_sample], dim=2)
             utils.save_img(out, output_name)
             print(f"  Saved combined: {output_name}")
 
             # Save deformed IR
-            output_name = save_ird_dir + "/" + file_name + ".png"
+            # output_name = save_ird_dir + "/" + file_name + ".png"
+            output_name = os.path.join(save_ird_dir, file_name + ".png")
             utils.save_img(ir_d, output_name)
             print(f"  Saved IRD: {output_name}")
 
             # Save fusion
-            output_name = save_fusion_dir + "/" + file_name + ".png"
+            # output_name = save_fusion_dir + "/" + file_name + ".png"
+            output_name = os.path.join(save_fusion_dir, file_name + ".png")
             out = fusion_image_sample
             utils.save_img(out, output_name)
             print(f"  Saved fusion: {output_name}")
